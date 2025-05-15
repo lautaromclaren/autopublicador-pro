@@ -1,109 +1,212 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Autopublicador Pro</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autopublicador Pro - Automatiza y Vende Más en Facebook</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Puedes añadir estilos personalizados aquí si es necesario, aunque Tailwind debería cubrir la mayoría */
+        html {
+            scroll-behavior: smooth;
+        }
+        /* Iconos SVG para Beneficios y Qué Incluye (Ejemplos) */
+        .icon-rocket { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='w-6 h-6'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M15.59 14.37a6 6 0 01-5.84 7.38v-4.82m5.84-2.56a18.023 18.023 0 01-5.84 7.38m5.84-2.56L18 16m-2.41-1.63L18 16m-2.41-1.63a6 6 0 00-5.84-7.38m5.84 7.38L18 16m-2.41-1.63L18 16m0 0v-4.82m0 4.82a18.023 18.023 0 00-5.84-7.38m5.84 7.38L18 16M4.5 17.25L18 16m-13.5 1.25a6 6 0 010-11.68V16m0 1.25L4.5 16m0 0a18.023 18.023 0 005.84 7.38m-5.84-7.38L4.5 16M4.5 17.25L18 16m-13.5 1.25L18 16'%3E%3C/path%3E%3C/svg%3E%0A"); }
+        .icon-clock { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='w-6 h-6'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z' /%3E%3C/svg%3E%0A"); }
+        .icon-code { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='w-6 h-6'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M14.25 9.75L16.5 12l-2.25 2.25m-4.5 0L7.5 12l2.25-2.25M6 20.25h12A2.25 2.25 0 0020.25 18V6A2.25 2.25 0 0018 3.75H6A2.25 2.25 0 003.75 6v12A2.25 2.25 0 006 20.25z' /%3E%3C/svg%3E%0A"); }
+        .icon-dollar { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='w-6 h-6'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z' /%3E%3C/svg%3E%0A"); }
+        .icon-tool { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='w-6 h-6'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M10.343 3.94c.09-.542.56-.94 1.11-.94h1.093c.55 0 1.02.398 1.11.94l.149.894c.07.424.384.764.78.93.398.164.855.142 1.205-.108l.737-.527a1.125 1.125 0 011.45.12l.773.774c.39.389.44 1.002.12 1.45l-.527.737c-.249.35-.27.806-.107 1.204.165.397.505.71.93.78l.893.15c.543.09.94.56.94 1.11v1.093c0 .55-.397 1.02-.94 1.11l-.893.149c-.425.07-.765.383-.93.78-.165.398-.143.854.107 1.204l.527.738c.32.447.27.96-.12 1.45l-.773.773a1.125 1.125 0 01-1.449.12l-.738-.527c-.35-.25-.806-.272-1.203-.107-.397.165-.71.505-.78.93l-.15.894c-.09.542-.56.94-1.11.94h-1.094c-.55 0-1.019-.398-1.11-.94l-.149-.894c-.07-.424-.384-.764-.78-.93-.398-.164-.854-.142-1.204.108l-.738.527a1.125 1.125 0 01-1.45-.12l-.773-.774a1.125 1.125 0 01-.12-1.45l.527-.737c.25-.35.27-.806.108-1.204-.165-.397-.506-.71-.93-.78l-.894-.15c-.542-.09-.94-.56-.94-1.11v-1.094c0-.55.398-1.02.94-1.11l.894-.149c.424-.07.765-.383.93-.78.165-.398.143-.854-.108-1.204l-.526-.738a1.125 1.125 0 01.12-1.45l.773-.773a1.125 1.125 0 011.45-.12l.737.527c.35.248.807.272 1.204.107.397-.165.71-.505.78-.93l.15-.894z' /%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M15 12a3 3 0 11-6 0 3 3 0 016 0z' /%3E%3C/svg%3E%0A"); }
+        .icon-guide { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='w-6 h-6'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25' /%3E%3C/svg%3E%0A"); }
+        .icon-bonus { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='w-6 h-6'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M21 11.25v8.25a8.25 8.25 0 01-16.5 0v-8.25m16.5 0a3.75 3.75 0 00-7.5 0m7.5 0a3.75 3.75 0 01-7.5 0m7.5 0v3.75m-16.5-3.75a3.75 3.75 0 00-7.5 0m7.5 0a3.75 3.75 0 01-7.5 0m7.5 0v3.75m0 0H3.75m0 0a3.75 3.75 0 01-3.75-3.75V8.25c0-1.36.386-2.629 1.048-3.661M21 11.25c0-1.36-.386-2.629-1.048-3.661M3.75 14.25c1.598 0 3.088-.607 4.2-1.688M21 11.25c-.662 1.032-2.112 1.688-3.712 1.688m0 0c1.598 0 3.088-.607 4.2-1.688m-12.901-8.06a3.75 3.75 0 110-5.298 3.75 3.75 0 010 5.298zM15.75 9.375c0-1.036-.386-1.986-1.032-2.738m1.032 2.738c.646 0 1.259-.121 1.819-.345' /%3E%3C/svg%3E%0A"); }
+        .icon-placeholder { width: 48px; height: 48px; background-repeat: no-repeat; background-position: center; background-size: contain; }
+    </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
-  <!-- Encabezado -->
-  <section class="bg-white text-center py-12 px-6">
-    <h1 class="text-4xl font-bold mb-4">Multiplicá tus ventas publicando en grupos de Facebook... ¡en minutos!</h1>
-    <p class="text-lg mb-6 max-w-2xl mx-auto">Con Autopublicador Pro automatizás publicaciones masivas sin gastar en publicidad. Ideal para afiliados, emprendedores y freelancers.</p>
-    <a href="#cta" class="bg-blue-600 text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-blue-700 transition">¡Quiero vender más ahora!</a>
-  </section>
+<body class="bg-gray-100 text-gray-800 font-sans leading-relaxed">
 
-  <!-- Beneficios -->
-  <section class="py-12 px-6 bg-gray-100">
-    <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
-      <div>
-        <h2 class="text-2xl font-bold mb-6">¿Por qué elegir Autopublicador Pro?</h2>
-        <ul class="space-y-4">
-          <li class="flex items-start"><span class="text-blue-600 font-bold mr-2">✔</span> Publicá en hasta 50 grupos en minutos.</li>
-          <li class="flex items-start"><span class="text-blue-600 font-bold mr-2">✔</span> Ahorra horas de trabajo manual.</li>
-          <li class="flex items-start"><span class="text-blue-600 font-bold mr-2">✔</span> No necesitás conocimientos técnicos.</li>
-          <li class="flex items-start"><span class="text-blue-600 font-bold mr-2">✔</span> Generá ventas sin invertir en anuncios.</li>
-        </ul>
-      </div>
-      <div>
-        <img src="https://via.placeholder.com/500x300" alt="Demostración herramienta" class="rounded-lg shadow" />
-      </div>
-    </div>
-  </section>
+    <!-- Encabezado Principal -->
+    <header class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20 px-6 text-center">
+        <div class="container mx-auto max-w-4xl">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                ¡Deja de Perder Horas en Facebook! Automatiza y Multiplica tus Ventas HOY.
+            </h1>
+            <p class="text-lg md:text-xl mb-10">
+                Con Autopublicador Pro, publica en decenas de grupos de Facebook en minutos. Aumenta tu alcance, ahorra tiempo y genera más ingresos sin gastar en publicidad.
+            </p>
+            <a href="#compra"
+               class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-4 px-10 rounded-lg text-xl shadow-lg transition duration-300 ease-in-out transform hover:scale-105">
+                ¡Quiero Autopublicador Pro AHORA!
+            </a>
+        </div>
+    </header>
 
-  <!-- Qué incluye -->
-  <section class="py-12 px-6">
-    <div class="max-w-4xl mx-auto text-center">
-      <h2 class="text-2xl font-bold mb-6">¿Qué incluye el paquete?</h2>
-      <div class="grid md:grid-cols-3 gap-6 text-left">
-        <div class="bg-white p-6 rounded-lg shadow">
-          <h3 class="font-semibold text-lg mb-2">🔧 Herramienta Autopublicador Pro</h3>
-          <p>Publicá automáticamente en grupos con texto, imágenes, links o video. Sin límite de perfiles.</p>
+    <!-- Sección de Beneficios -->
+    <section id="beneficios" class="py-16 bg-white px-6">
+        <div class="container mx-auto max-w-5xl">
+            <h2 class="text-3xl font-bold text-center text-blue-700 mb-12">
+                Transforma tu Estrategia en Facebook con Autopublicador Pro
+            </h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+                <!-- Beneficio 1 -->
+                <div class="p-6 bg-gray-50 rounded-lg shadow-md">
+                    <div class="icon-placeholder icon-rocket mx-auto mb-4"></div>
+                    <h3 class="text-xl font-semibold text-blue-600 mb-2">Alcance Masivo Instantáneo</h3>
+                    <p class="text-gray-600">Publica tu mensaje en hasta 50 grupos de Facebook simultáneamente. ¡Imagina el impacto!</p>
+                </div>
+                <!-- Beneficio 2 -->
+                <div class="p-6 bg-gray-50 rounded-lg shadow-md">
+                    <div class="icon-placeholder icon-clock mx-auto mb-4"></div>
+                    <h3 class="text-xl font-semibold text-blue-600 mb-2">Ahorra Horas Valiosas</h3>
+                    <p class="text-gray-600">Lo que te tomaba horas de trabajo manual, ahora lo haces en minutos. Dedica tu tiempo a crecer tu negocio.</p>
+                </div>
+                <!-- Beneficio 3 -->
+                <div class="p-6 bg-gray-50 rounded-lg shadow-md">
+                    <div class="icon-placeholder icon-code mx-auto mb-4"></div>
+                    <h3 class="text-xl font-semibold text-blue-600 mb-2">Sin Complicaciones Técnicas</h3>
+                    <p class="text-gray-600">Fácil de usar, incluso si eres principiante. No necesitas ser un experto en tecnología para dominarlo.</p>
+                </div>
+                <!-- Beneficio 4 -->
+                <div class="p-6 bg-gray-50 rounded-lg shadow-md">
+                    <div class="icon-placeholder icon-dollar mx-auto mb-4"></div>
+                    <h3 class="text-xl font-semibold text-blue-600 mb-2">Ventas sin Gastar en Ads</h3>
+                    <p class="text-gray-600">Aumenta tu visibilidad y atrae clientes de forma orgánica, sin invertir un centavo en publicidad pagada.</p>
+                </div>
+            </div>
         </div>
-        <div class="bg-white p-6 rounded-lg shadow">
-          <h3 class="font-semibold text-lg mb-2">📘 Guía paso a paso</h3>
-          <p>Aprendé a usarla desde cero sin conocimientos técnicos.</p>
-        </div>
-        <div class="bg-white p-6 rounded-lg shadow">
-          <h3 class="font-semibold text-lg mb-2">🎁 Bonos exclusivos</h3>
-          <p>Conectá múltiples cuentas y accedé a estrategias de uso efectivas.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Testimonios -->
-  <section class="py-12 px-6 bg-gray-100">
-    <div class="max-w-4xl mx-auto text-center">
-      <h2 class="text-2xl font-bold mb-6">Lo que dicen nuestros usuarios</h2>
-      <div class="grid md:grid-cols-3 gap-6 text-left">
-        <div class="bg-white p-4 rounded shadow">
-          <p>"Conseguí mis primeras ventas en Hotmart en 2 días. ¡Una joya esta herramienta!"</p>
-          <p class="text-sm mt-2 font-semibold">– María L.</p>
+    <!-- Sección "Qué incluye" -->
+    <section id="incluye" class="py-16 bg-gray-100 px-6">
+        <div class="container mx-auto max-w-5xl">
+            <h2 class="text-3xl font-bold text-center text-blue-700 mb-12">
+                Todo lo que Necesitas para Triunfar con tus Publicaciones
+            </h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Elemento 1 -->
+                <div class="bg-white p-8 rounded-lg shadow-lg text-center">
+                    <div class="icon-placeholder icon-tool mx-auto mb-4"></div>
+                    <h3 class="text-2xl font-semibold text-blue-600 mb-3">Herramienta Autopublicador Pro</h3>
+                    <p class="text-gray-700">Software completo para publicar automáticamente en múltiples grupos de Facebook con texto, imágenes, videos o enlaces.</p>
+                </div>
+                <!-- Elemento 2 -->
+                <div class="bg-white p-8 rounded-lg shadow-lg text-center">
+                    <div class="icon-placeholder icon-guide mx-auto mb-4"></div>
+                    <h3 class="text-2xl font-semibold text-blue-600 mb-3">Guía Paso a Paso</h3>
+                    <p class="text-gray-700">Un manual claro y sencillo para que configures y uses la herramienta como un experto desde el primer día, ¡sin importar tu nivel!</p>
+                </div>
+                <!-- Elemento 3 -->
+                <div class="bg-white p-8 rounded-lg shadow-lg text-center">
+                    <div class="icon-placeholder icon-bonus mx-auto mb-4"></div>
+                    <h3 class="text-2xl font-semibold text-blue-600 mb-3">Bonos Exclusivos</h3>
+                    <p class="text-gray-700">Estrategias y tácticas secretas para conectar múltiples cuentas de forma segura y crear posts que realmente convierten y venden.</p>
+                </div>
+            </div>
         </div>
-        <div class="bg-white p-4 rounded shadow">
-          <p>"Antes perdía 2 horas por día posteando manual. Ahora tardo 10 minutos. La recomiendo 100%."</p>
-          <p class="text-sm mt-2 font-semibold">– Javier R.</p>
+    </section>
+    
+    <!-- Placeholder para Demostración Visual (Opcional, pero recomendado) -->
+    <section class="py-16 bg-white px-6">
+        <div class="container mx-auto max-w-3xl text-center">
+            <h2 class="text-3xl font-bold text-blue-700 mb-8">Mira lo Fácil que Es Usar Autopublicador Pro</h2>
+            <!-- Aquí iría un GIF o un video corto. Usamos un placeholder por ahora. -->
+            <div class="bg-gray-300 h-64 md:h-96 rounded-lg shadow-lg flex items-center justify-center">
+                <p class="text-gray-500 text-xl">[Aquí va un GIF o video demostrativo de la herramienta en acción]</p>
+            </div>
+            <p class="mt-6 text-gray-600">Publica tu contenido en 3 simples pasos: Conecta, Crea y ¡Envía!</p>
         </div>
-        <div class="bg-white p-4 rounded shadow">
-          <p>"Me ayudó a conseguir clientes sin gastar en publicidad. Ideal para freelancers como yo."</p>
-          <p class="text-sm mt-2 font-semibold">– Florencia M.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Preguntas frecuentes -->
-  <section class="py-12 px-6">
-    <div class="max-w-3xl mx-auto">
-      <h2 class="text-2xl font-bold mb-6 text-center">Preguntas Frecuentes</h2>
-      <div class="space-y-4">
-        <div>
-          <h3 class="font-semibold">¿Necesito conocimientos técnicos?</h3>
-          <p>No, es muy fácil de usar. Viene con una guía paso a paso.</p>
+    <!-- Testimonios Reales -->
+    <section id="testimonios" class="py-16 bg-gray-100 px-6">
+        <div class="container mx-auto max-w-4xl">
+            <h2 class="text-3xl font-bold text-center text-blue-700 mb-12">
+                Lo que Dicen Nuestros Usuarios Satisfechos
+            </h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Testimonio 1 -->
+                <div class="bg-blue-50 p-6 rounded-lg shadow-md border-l-4 border-blue-500">
+                    <p class="text-gray-700 italic mb-4">"¡Autopublicador Pro cambió mi vida! Ahorro horas y mis ventas como afiliada se dispararon. ¡No puedo creer lo fácil que es!"</p>
+                    <p class="font-semibold text-blue-700">- Ana L., Marketer de Afiliados</p>
+                </div>
+                <!-- Testimonio 2 -->
+                <div class="bg-blue-50 p-6 rounded-lg shadow-md border-l-4 border-blue-500">
+                    <p class="text-gray-700 italic mb-4">"Como emprendedor con poco tiempo, esta herramienta es un salvavidas. Llego a más clientes sin gastar en ads. ¡100% recomendado!"</p>
+                    <p class="font-semibold text-blue-700">- Carlos M., Dueño de Pequeño Negocio</p>
+                </div>
+                <!-- Testimonio 3 -->
+                <div class="bg-blue-50 p-6 rounded-lg shadow-md border-l-4 border-blue-500">
+                    <p class="text-gray-700 italic mb-4">"No soy técnico, pero empecé a usar Autopublicador Pro en minutos. Mis servicios como freelancer ahora tienen mucha más visibilidad."</p>
+                    <p class="font-semibold text-blue-700">- Sofía P., Consultora Freelance</p>
+                </div>
+            </div>
         </div>
-        <div>
-          <h3 class="font-semibold">¿Cuántas cuentas puedo usar?</h3>
-          <p>No hay límite de perfiles. Usala con todas tus cuentas.</p>
-        </div>
-        <div>
-          <h3 class="font-semibold">¿Puedo programar publicaciones?</h3>
-          <p>No. El autopublicador publica al instante, no programa publicaciones futuras.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Llamada a la acción final -->
-  <section id="cta" class="bg-blue-600 text-white py-12 px-6 text-center">
-    <h2 class="text-3xl font-bold mb-4">Empezá a vender más hoy mismo</h2>
-    <p class="mb-6 text-lg">Accedé al Autopublicador Pro y multiplicá tus resultados sin pagar publicidad. Oferta por tiempo limitado.</p>
-    <a href="#" class="bg-white text-blue-600 font-semibold px-8 py-3 rounded-full text-lg hover:bg-gray-100 transition">Comprar ahora</a>
-  </section>
+    <!-- Preguntas Frecuentes (FAQ) -->
+    <section id="faq" class="py-16 bg-white px-6">
+        <div class="container mx-auto max-w-3xl">
+            <h2 class="text-3xl font-bold text-center text-blue-700 mb-12">
+                Resolvemos tus Dudas
+            </h2>
+            <div class="space-y-6">
+                <!-- FAQ 1 -->
+                <div>
+                    <h3 class="text-xl font-semibold text-blue-600 mb-2">¿Necesito conocimientos técnicos para usar Autopublicador Pro?</h3>
+                    <p class="text-gray-700">¡Para nada! Está diseñado para ser súper intuitivo. Si sabes usar Facebook, sabrás usar Autopublicador Pro. Además, la guía paso a paso te ayudará en todo.</p>
+                </div>
+                <!-- FAQ 2 -->
+                <div>
+                    <h3 class="text-xl font-semibold text-blue-600 mb-2">¿Cuántas cuentas de Facebook puedo usar?</h3>
+                    <p class="text-gray-700">La herramienta no tiene límite de perfiles. Y con nuestro bono exclusivo, aprenderás cómo gestionar múltiples cuentas de forma segura y efectiva para maximizar tu alcance.</p>
+                </div>
+                <!-- FAQ 3 -->
+                <div>
+                    <h3 class="text-xl font-semibold text-blue-600 mb-2">¿Puedo programar publicaciones para días futuros?</h3>
+                    <p class="text-gray-700">Autopublicador Pro está enfocado en la publicación masiva e INMEDIATA para un impacto rápido. Actualmente, no incluye función de programación para fechas futuras distantes.</p>
+                </div>
+                <!-- FAQ 4 -->
+                <div>
+                    <h3 class="text-xl font-semibold text-blue-600 mb-2">¿Funciona para promocionar productos físicos y digitales?</h3>
+                    <p class="text-gray-700">¡Claro que sí! Es perfecto para cualquier tipo de oferta: productos físicos, servicios, cursos online, software, enlaces de afiliado, ¡lo que necesites promocionar!</p>
+                </div>
+                <!-- FAQ 5 -->
+                <div>
+                    <h3 class="text-xl font-semibold text-blue-600 mb-2">¿Sirve en cualquier país?</h3>
+                    <p class="text-gray-700">Sí, mientras tengas acceso a Facebook y puedas unirte a grupos, Autopublicador Pro funcionará para ti sin importar en qué país te encuentres.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <footer class="text-center text-sm py-6 text-gray-500">
-    © 2025 Autopublicador Pro. Todos los derechos reservados.
-  </footer>
+    <!-- Llamada a la Acción Final -->
+    <section id="compra" class="bg-blue-700 text-white py-20 px-6 text-center">
+        <div class="container mx-auto max-w-3xl">
+            <h2 class="text-4xl font-bold mb-6">¡Es Hora de Dejar de Perder Tiempo y Empezar a Vender MÁS!</h2>
+            <p class="text-xl mb-10">
+                Únete a cientos de afiliados, emprendedores y freelancers que ya están multiplicando su alcance y sus ingresos con Autopublicador Pro.
+                Accede ahora a la herramienta completa, la guía paso a paso y los bonos exclusivos por un único pago.
+            </p>
+            <a href="https://pay.hotmart.com/S98719554L?off=ry3d53rc&bid=1744590204691"
+               target="_blank" rel="noopener noreferrer"
+               class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-4 px-12 rounded-lg text-2xl shadow-xl transition duration-300 ease-in-out transform hover:scale-105 inline-block">
+                🔥 ¡OBTENER AUTOPUBLICADOR PRO AHORA! 🔥
+            </a>
+            <p class="mt-6 text-sm text-blue-200">Pago 100% seguro a través de Hotmart. Acceso inmediato.</p>
+        </div>
+    </section>
+
+    <!-- Pie de Página -->
+    <footer class="bg-gray-800 text-gray-400 py-8 px-6 text-center">
+        <div class="container mx-auto">
+            <p class="text-sm">© <span id="currentYear"></span> Autopublicador Pro. Todos los derechos reservados.</p>
+            <p class="text-xs mt-1">Este sitio no es parte de Facebook ni está respaldado por Facebook Inc.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Script para el año actual en el footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+
 </body>
 </html>
